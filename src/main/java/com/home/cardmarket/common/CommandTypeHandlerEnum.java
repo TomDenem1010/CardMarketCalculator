@@ -1,5 +1,7 @@
 package com.home.cardmarket.common;
 
+import java.util.Map;
+
 import com.home.cardmarket.common.commandhandler.SumCsvHandler;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +16,7 @@ public enum CommandTypeHandlerEnum {
     public final String command;
     public final TypeHandler handler;
 
-    public static void executeCommand(String command, java.util.Map<String, String> params) {
+    public static void executeCommand(String command, Map<String, String> params) {
         for (CommandTypeHandlerEnum type : CommandTypeHandlerEnum.values()) {
             if (type.command.equals(command)) {
                 log.debug("Executing command: {} with parameters: {}", command, params);
