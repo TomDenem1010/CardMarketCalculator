@@ -19,7 +19,7 @@ public class CardmarketApplication implements Runnable {
 
 	@Override
 	public void run() {
-		CommandTypeHandlerEnum.executeCommand(type, Map.of("filePath", getOrEmpty(filePath)));
+		CommandTypeHandlerEnum.executeCommand(type, Map.of(InputEnum.FILE_PATH, getOrEmpty(filePath)));
 	}
 
 	public static void main(String[] args) {

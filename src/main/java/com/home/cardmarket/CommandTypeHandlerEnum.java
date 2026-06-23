@@ -18,7 +18,7 @@ public enum CommandTypeHandlerEnum {
     public final String command;
     public final TypeHandler handler;
 
-    public static void executeCommand(String command, Map<String, String> params) {
+    public static void executeCommand(String command, Map<InputEnum, String> params) {
         for (CommandTypeHandlerEnum type : CommandTypeHandlerEnum.values()) {
             if (type.command.equals(command)) {
                 log.debug("Executing command: {} with parameters: {}", command, params);

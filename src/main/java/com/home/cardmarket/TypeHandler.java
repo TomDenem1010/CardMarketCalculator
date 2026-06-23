@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface TypeHandler {
 
-    void handle(Map<String, String> params);
+    void handle(Map<InputEnum, String> params);
 }
