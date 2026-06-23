@@ -1,5 +1,9 @@
 package com.home.cardmarket;
 
+import org.jsoup.nodes.Document;
+
+import com.home.cardmarket.common.UrlCaller;
+
 import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -14,7 +18,7 @@ public class CardmarketApplication implements Runnable {
 
 	@Override
 	public void run() {
-		log.info("url: {}", url);
+		UrlCaller.getByUrl(url, Document.class);
 	}
 
 	public static void main(String[] args) {
