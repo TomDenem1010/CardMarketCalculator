@@ -1,13 +1,25 @@
 package com.home.cardmarket;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.extern.slf4j.Slf4j;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
-@SpringBootApplication
-public class CardmarketApplication {
+@Slf4j
+@Command(name = "card-market-calculator", mixinStandardHelpOptions = true, version = "1.0", description = "A command-line application for calculating card market values.")
+public class CardmarketApplication implements Runnable {
+
+	@Option(names = "--url")
+	private String url;
+
+	@Override
+	public void run() {
+		log.info("url: {}", url);
+	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(CardmarketApplication.class, args);
+		int exitCode = new CommandLine(new CardmarketApplication()).execute(args);
+		System.exit(exitCode);
 	}
 
 }
