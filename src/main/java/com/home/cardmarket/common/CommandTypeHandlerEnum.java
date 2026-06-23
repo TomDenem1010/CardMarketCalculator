@@ -2,6 +2,7 @@ package com.home.cardmarket.common;
 
 import java.util.Map;
 
+import com.home.cardmarket.common.commandhandler.SumCsvExampleHandler;
 import com.home.cardmarket.common.commandhandler.SumCsvHandler;
 
 import lombok.AllArgsConstructor;
@@ -11,7 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public enum CommandTypeHandlerEnum {
 
-    SUM_CSV_HANDLER("sum-csv", new SumCsvHandler());
+    SUM_CSV_HANDLER("sum-csv", new SumCsvHandler()),
+    SUM_CSV_EXAMPLE_HANDLER("sum-csv-example", new SumCsvExampleHandler());
 
     public final String command;
     public final TypeHandler handler;
