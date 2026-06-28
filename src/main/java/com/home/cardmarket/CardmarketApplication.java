@@ -1,6 +1,7 @@
 package com.home.cardmarket;
 
 import java.util.Map;
+import java.util.Objects;
 
 import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine;
@@ -19,7 +20,9 @@ public class CardmarketApplication implements Runnable {
 
 	@Override
 	public void run() {
-		CommandTypeHandlerEnum.executeCommand(type, Map.of(InputEnum.FILE_PATH, getOrEmpty(filePath)));
+		CommandTypeHandlerEnum.executeCommand(Map.of(
+				InputEnum.TYPE, getOrEmpty(type),
+				InputEnum.FILE_PATH, getOrEmpty(filePath)));
 	}
 
 	public static void main(String[] args) {
@@ -28,6 +31,6 @@ public class CardmarketApplication implements Runnable {
 	}
 
 	private String getOrEmpty(String value) {
-		return value != null ? value : "";
+		return Objects.nonNull(value) ? value : "";
 	}
 }

@@ -10,9 +10,7 @@ import lombok.AllArgsConstructor;
 public enum CsvHeaderEnum {
 
     ID("id"),
-    GAME("game"),
-    NAME("name"),
-    LANGUAGE("language"),
+    URL("url"),
     QUANTITY("quantity"),
     PRICE_FROM("price from"),
     PRICE_TREND("price trend"),

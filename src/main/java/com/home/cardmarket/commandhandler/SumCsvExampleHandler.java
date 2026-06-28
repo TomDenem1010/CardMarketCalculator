@@ -21,9 +21,15 @@ public class SumCsvExampleHandler implements TypeHandler {
                         CsvHeaderEnum.getHeaders(),
                         List.of(
                                 "1",
-                                "FleshAndBlood",
-                                "GEM-Pack-Promos/Cut-Through-Red-Extended-Art-Rainbow-Foil",
+                                "https://www.cardmarket.com/en/FleshAndBlood/Products/Singles/Compendium-of-Rathe-Antiquity-Pack/Eye-of-Ophidia-Regular?language=1",
                                 "1",
+                                "",
+                                "",
+                                "",
+                                ""),
+                        List.of(
+                                "2",
+                                "https://www.cardmarket.com/en/FleshAndBlood/Products/Singles/Compendium-of-Rathe-Antiquity-Pack/Heart-of-Fyendal-Regular?language=1",
                                 "1",
                                 "",
                                 "",

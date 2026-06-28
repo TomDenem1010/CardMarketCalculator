@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ public class CsvWriter {
             return;
         }
 
-        Path path = Path.of(filePath + "\\" + fileName + ".csv");
+        Path path = Path.of(filePath + "\\" + fileName + Instant.now().toEpochMilli() + ".csv");
         Path parent = path.getParent();
 
         try {
