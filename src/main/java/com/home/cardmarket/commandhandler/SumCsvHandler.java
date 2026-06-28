@@ -23,7 +23,10 @@ public class SumCsvHandler implements TypeHandler {
         List<Map<CsvHeaderEnum, String>> rows = new CsvReader().read(params.get(InputEnum.FILE_PATH));
         setRowValues(rows);
         List<List<String>> csvRows = new ArrayList<>(List.of(CsvHeaderEnum.getHeaders()));
-        setcsvRows(rows, csvRows);
+        List<List<String>> csvValueRows = new ArrayList<>();
+        setcsvRows(rows, csvValueRows);
+        sortRows(csvValueRows);
+        csvRows.addAll(csvValueRows);
 
         new CsvWriter().write(
                 Path.of(params.get(InputEnum.FILE_PATH)).getParent().toString(),
@@ -37,5 +40,24 @@ public class SumCsvHandler implements TypeHandler {
 
     private void setcsvRows(List<Map<CsvHeaderEnum, String>> rows, List<List<String>> csvRows) {
         rows.forEach(row -> csvRows.add(CsvHeaderEnum.getRowValues(row)));
+    }
+
+    private void sortRows(List<List<String>> csvValueRows) {
+        csvValueRows.sort((row1, row2) -> {
+            if (!isInteger(row1.get(0)) || !isInteger(row2.get(0))) {
+                return row1.get(0).compareTo(row2.get(0));
+            }
+
+            return Integer.compare(Integer.parseInt(row1.get(0)), Integer.parseInt(row2.get(0)));
+        });
+    }
+
+    private boolean isInteger(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
